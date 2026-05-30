@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat Hub — Free Models</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">AI Chat Hub</span>
+      </div>
+      <p class="tagline">27 Free Models · No Limits Bullshit</p>
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="modelSearch" placeholder="Search models..." autocomplete="off" />
+      <span class="search-icon">⌕</span>
+    </div>
+
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="vision">👁 Vision</button>
+      <button class="filter-btn" data-filter="tools">🔧 Tools</button>
+      <button class="filter-btn" data-filter="reasoning">🧠 Reason</button>
+    </div>
+
+    <div class="model-list" id="modelList">
+      <div class="loading-models">Loading models...</div>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="rate-limit-info">
+        <span>⏱ 20 req/min · 200/day · Free</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Chat Area -->
+  <main class="main">
+    <!-- Top bar -->
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="active-model-info" id="activeModelInfo">
+        <div class="active-model-dot"></div>
+        <span id="activeModelName">Select a model to start</span>
+        <span class="active-model-ctx" id="activeModelCtx"></span>
+      </div>
+      <div class="topbar-right">
+        <button class="clear-btn" id="clearBtn" title="Clear chat">🗑</button>
+      </div>
+    </header>
+
+    <!-- Messages -->
+    <div class="chat-area" id="chatArea">
+      <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-icon">⬡</div>
+        <h1>AI Chat Hub</h1>
+        <p>Access <strong>27 free AI models</strong> from DeepSeek, NVIDIA, OpenAI, Google, Meta, Qwen, and more — all in one place.</p>
+        <div class="welcome-cards">
+          <div class="welcome-card" onclick="setPrompt('Explain quantum computing in simple terms')">
+            <span class="wc-icon">⚛️</span>
+            <span>Explain quantum computing</span>
+          </div>
+          <div class="welcome-card" onclick="setPrompt('Write a Python script that scrapes news headlines')">
+            <span class="wc-icon">💻</span>
+            <span>Write a Python scraper</span>
+          </div>
+          <div class="welcome-card" onclick="setPrompt('What are the best strategies for learning a new language?')">
+            <span class="wc-icon">🌐</span>
+            <span>Language learning tips</span>
+          </div>
+          <div class="welcome-card" onclick="setPrompt('Write a short science fiction story about AI')">
+            <span class="wc-icon">✍️</span>
+            <span>Write a sci-fi story</span>
+          </div>
+        </div>
+      </div>
+      <div class="messages" id="messages"></div>
+    </div>
+
+    <!-- Input -->
+    <div class="input-area">
+      <div class="input-wrapper">
+        <textarea
+          id="userInput"
+          placeholder="Message the AI… (Enter to send, Shift+Enter for newline)"
+          rows="1"
+        ></textarea>
+        <button class="send-btn" id="sendBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+      <p class="input-hint">Free models have rate limits · <a href="https://openrouter.ai/models" target="_blank">openrouter.ai</a></p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
